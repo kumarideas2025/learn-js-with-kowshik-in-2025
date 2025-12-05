@@ -1,0 +1,46 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <h1>Code with kowshik </h1>
+    <button id="stop">Stop</button>
+    <script>
+         // this also call api--(inspection write window to find all function)
+     setTimeout(function(){
+        console.log("kowshik kumar sarker js")
+    },2000) // 2000 means it will take 2 sec to print 
+
+
+
+
+
+
+            //handler is callback (function with no name)
+        const sayKowshik=function(){
+            console.log("HAve a good day kowshik")
+        }
+
+
+            //we want that our innerHTMl comment shows after times.
+             const changeTEXT=function()
+       { document.querySelector('h1').innerHTML="Coding is the way to make change"}
+
+
+        setTimeout(changeTEXT,5000) // here we takes references
+    
+
+
+            // for remove setTime we use cleartimeout
+            const changeMYname=setTimeout(changeTEXT,5000)
+            document.querySelector('#stop').addEventListener('click',function(){
+                clearTimeout(changeMYname)
+                console.log("stopped")
+            })
+            // after refresses we press stop and see that(have a good day is not shown)
+    </script>
+ </body>
+ </html>

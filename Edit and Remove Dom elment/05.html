@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom with kowshik</title>
+</head>
+<body style="background-color:rgb(208, 34, 231);color:rgb(13, 14, 14)">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+       const li= document.createElement('li')
+       li.innerHTML=`${langName}`
+       document.querySelector('.language').appendChild(li)
+
+    }
+    addLanguage("CODE")
+        addLanguage("scale")
+        //there have such problem when we do it for one it takes tree travelsale for find it from child.
+
+
+
+// this aproch is more optimize cause we did not traves all the tree. we can directly
+        function ADDLang(langName){
+            const li=document.createElement('li')
+            li.appendChild(document.createTextNode(langName))
+            document.querySelector('.language').appendChild(li)
+        }
+        ADDLang('php')
+
+
+
+
+
+    //--------------------------------EDIT VALUES:-----------------------------------------------
+
+   const secondLang= document.querySelector("li:nth-child(2)") 
+   console.log(secondLang)// it will take our CODE 
+  //-- now want to change here.
+
+
+
+//  secondLang.innerHTML="ganja"(1st approch)---
+
+//create new li which we want to replace with code
+const newLI=document.createElement('li')
+newLI.textContent="GO lang"
+
+// this will edit that path of second lang to newLi
+secondLang.replaceWith(newLI)
+
+
+
+//ANOther method of edit
+ const dd=document.querySelector("li:first-child")
+dd.outerHTML='<li>PYTHON</li>' // this will give 1st value as PYTHIN  
+
+
+
+
+
+
+
+
+//-------------------------------------------------------REMOVE------------------------------
+
+const RR=document.querySelector('li:last-child')
+RR.remove() // this will remove PyTHON
+
+
+</script>
+</html>

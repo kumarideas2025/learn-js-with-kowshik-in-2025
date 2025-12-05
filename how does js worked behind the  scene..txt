@@ -1,0 +1,98 @@
+//------------javascript execution context--------
+1.{}-->global_execution---this
+2.functional_execution context
+3.eval execution context
+
+
+code run in 2 phases-->
+1.memory  creation phase.
+2.execution phase.
+
+
+example:
+let val=10
+let val2=9
+
+function addNUm(nu8m1 ,num2){
+    let total=num1+num2
+    return total
+}
+let result1=addNUm(val1,val2)
+let result1=addNUm(10,2)
+
+1.global execution/environment(this)
+
+2.memory phase(store all variable)----
+val1->undefined,val2->undefined
+addNUm->defination ({})
+result1->undefined,result2->undefined
+
+3.execution phase:
+val1->10 ,val2->9
+addNUm(for line 20)-------------------->new  variable environment + execution thread
+and 2 and 3 will be recreated for line 20 addNUm.
+
+so again in memory phase.
+val1->undefined,val2->undefined
+total-> undefined
+
+and in execution phase
+num1->10
+num2->9
+total->19 ....this EXECUTION will del after execution
+
+result1=19
+
+this total is return in global execution context.
+
+
+
+for line 21
+here the 3rd step created and we find those 1 and 2 steps again
+
+
+
+
+
+
+
+
+
+
+
+----------------------------CALL STACK-------------------------(LIFO)
+
+//NORAMLLY:
+
+one()------> go to stack---(put above global context)------> get out one()
+two()------> go to stack---(put above global context)------> get out two()
+
+//what problem is come out when we call two when one is already inn stack.
+this will follow lifo rules
+
+go to inspect --> source----> go to new snipit and amke a new js file
+
+in snipite: i write thast code
+
+function one(params) {
+    console.log("one")
+    TWo()
+}
+function TWo(params) {
+    console.log("TWo")
+    three()
+}
+
+function three(){
+console.log("three")
+            }
+one()
+TWo()
+three()
+
+
+in the console i find that ..result show (ONE -> TWO-> THREE).
+
+FOR CHECK I CAN ADD BLOCK IN CODE LINE .
+
+#####I ALSO FIND HERE callStack.(after every run by click the upper button in call stack i find the value is follow LIFO method and give me {ONE->twO})

@@ -1,0 +1,12 @@
+fetch("https://youandme.com).then()---response
+fetch("https://youandme.com).catch()---if any error
+fetch("https://youandme.com).finally()---give all
+
+but we needed to make promises first
+needed 3 steps
+promises an object representing eventual completion
+
+
+before promise there are library like queue and blue bird
+after node.js support of promise is not use that much.
+from browser read about fetch(mdn)

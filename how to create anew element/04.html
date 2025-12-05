@@ -1,0 +1,62 @@
+<!-- create element by programming -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom new element create with kowshik</title>
+</head>
+<body>
+    <body style="background-color:rgb(31, 230, 121); color:rgb(0, 0, 0);">
+
+    
+</body>
+<script> 
+    const div=document.createElement('div')
+    console.log(div)
+
+        const h1=document.createElement('h1')
+    console.log(h1)
+
+    //add property in div
+    div.className="main"
+    div.id="myId"
+    div.id=Math.round(Math.random()*10+1)
+
+ // how to sel;ect more custom attribute
+div.setAttribute("title","Code with Kowshik")
+div.style.backgroundColor="white"
+div.style.padding="14px" 
+// what here is the question we give all of this but why not show at the screen?
+//answer: this div we create is in a memory . so we have to tell the document to attach the child in you.
+
+
+
+
+//div.innerHTML="code with kowshik" // this override the values . this will firstly take that value and then set this value .So mostly use setAttribute it did not take that value it directly set the value.
+
+
+
+//SO IT IS MORE PREFERABLE BY ALL:
+const addText=document.createTextNode("code with coder")
+div.append(addText)
+
+
+//attach to page: took a body and append a child in the page of body.
+document.body.appendChild(div)
+// after that our old liveserver page will get a new div box with padding and background color and .comment out the attach part to look before it is looking.
+
+</script>
+</html>
+
+
+
+
+
+
+<!-- console part -->
+<!-- 
+04.html:56 <div class=​"main" id=​"1" title=​"Code with Kowshik" style=​"background-color:​ white;​ padding:​ 14px;​">​code with coder​</div>​
+04.html:59 <h1>​</h1>​ -->

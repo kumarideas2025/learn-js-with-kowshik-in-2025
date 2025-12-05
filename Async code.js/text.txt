@@ -1,0 +1,50 @@
+JAVASCRIPT-->
+
+   - SYNCHONOUS(means after execution of one code then another code will executed)
+   - SINGLE THREADED(that why it is slow.no one use js engine)
+
+
+->Excution Context->
+    -execute one line of code at a time
+            -console log->1
+            -console log->2
+        [CALL STACK]    [MEMORY HEAP]
+
+
+-BLOCKING CODE                     VS          NON-BLOCKING CODE 
+    |                                                 |
+    block the flow of programme                does not block execute
+    |                                                 |
+    read file synchonas                          read file asynchonas
+
+E.G:
+    SET TIME OUT-- AFTER 2SEC WE CALL BACK.
+    TASK QUEUE- (WE HAVE BACK THE SET WHICE WE THOUGH)--ENTER THE CALL_BACK TO CALL STACK.
+
+
+
+//////FROM IMAGE:
+
+
+SET TIME OUT 0? IMMEDIATE EXECUTE OR LATER EXECUTE:
+
+ FIRST PRINT that 1
+AFTER 0TH TIME PRINT 2
+THEN 3
+
+ANSWER IS : 2 WILL NOT PRINT AFTER 1 AS WE SET 0 SEC . IT WILL TAKES TIME TO CALL BACK AND ADDED TO QUEUE. SO 3 WILL PRINT BEFORE 2.
+
+
+FETCH():
+THERE IS PROMISE: THAT TELL US AS IT SUCCESS_FULL OR NOT (HIGH PRIORITY)
+
+
+
+
+In interviews,  don’t need to assume that `setTimeout` or `setInterval` 
+always involve network requests. These are **built-in JavaScript functions** 
+used to schedule code, and the focus is on understanding how they work. 
+JavaScript runs on a **single thread**, 
+but its runtime efficiently manages asynchronous events like timers via the **event loop**, a
+allowing the main thread to keep running while these tasks wait. Understanding this interaction between 
+**timers, the event loop, and single-threaded execution** is what matters.

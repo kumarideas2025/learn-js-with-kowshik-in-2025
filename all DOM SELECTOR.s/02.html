@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Learning</title>
+    <style>
+      .bg-black {
+        background-color: brown;
+        color: rgb(19, 20, 20);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-black">
+      <h1 id="tittle" class="heading">
+        Dom learning with kowshik 
+        <span style="display:none">test text</span>
+      </h1>
+      <p>Lorem ipsum dolor sit amet.</p>
+
+
+
+
+          <!-- add input for understanding qurey -->
+    <input type="password"  name="" id="">
+
+
+
+
+
+    <!-- select one indivisual and perform color change and make one into sweven -->
+     <!-- AGAIN WE MODIFY LI AND ADD 4 LI WITH CLASS FOR UNDESTANDING ELEMENTSELECTBYCLASSNAME -->
+    <ul>
+  <li class="list-item">one</li>
+  <li class="list-item">two</li>
+  <li class="list-item">there</li>
+  <li class="list-item">four</li>
+    </ul>
+    </div>
+
+
+
+
+
+<!-- +======= change the html (script) into this so i have never restore into title again : read comment section for better understanding-->
+    <script>
+      const title = document.getElementById('tittle');
+      console.log(title.innerHTML);
+    </script>
+    <!-- for understanding qureyselector we add h2 and h3 -->
+    <h2>hi mfs you are great</h2>
+    <h3>how are your looks better looking</h3>
+     
+    
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- go to live server and inspection
+document.getElementById('tittle').id
+'tittle'
+document.getElementById('tittle').class
+
+undefined
+document.getElementById('tittle').className
+
+
+'heading'
+document.getElementById('tittle').getAttribute
+
+
+ƒ getAttribute() { [native code] }
+document.getElementById('tittle').getAttribute()
+
+'tittle'
+document.getElementById('tittle').getAttribute('class')
+
+
+'heading'
+document.getElementById('tittle').setAttribute('id','test')
+
+
+undefined---in element we saw that there is changed but here show undefined.
+
+
+
+
+
+ document.getElementById('tittle')
+<h1 id=​"tittle" class=​"heading">​Dom learning with kowshik​</h1>​
+
+
+###store into a variable : title
+const title=document.getElementById('tittle')
+undefined
+
+
+title
+<h1 id=​"tittle" class=​"heading">​Dom learning with kowshik​</h1>​
+
+
+
+title.style.backgroundColor='blue'
+'blue'
+
+title.style.padding="30px"
+'30px'
+
+
+title.style.borderRadius="10px"
+'10px'
+
+
+
+
+
+
+####### finding content from title and adding content????????
+
+
+
+
+&&&&& differ between text content and inner text
+normally(when only span added):
+
+const title=document.getElementById('tittle')
+undefined
+title.innerText
+'Dom learning with kowshik test text'
+title.textContent
+'Dom learning with kowshik test text'
+
+
+
+
+
+AFTER ADD SCRIPT IN HTML FILE FOR ALWAYS ACCESS THROUGH title..we see differ between
+
+title.innerText
+'Dom learning with kowshik' ####only show text content
+
+title.textContent
+'\n        Dom learning with kowshik \n        test text\n      ' ### also show those span but after we change it into not display mode.
+
+
+
+
+
+
+WHAT DOES innerHtml gives--
+      
+title.innerHTML
+'\n        Dom learning with kowshik \n        <span style="display:none">test text</span>\n      '
+
+#### it will give full content and if there any type of html it will give this.
+IT ALSO SUPPORT Html tag but innerText & innerContent did not support tag.(in setAttribute we use inner Html)
+-->
+
+
+
+
+
+
+
+
+
+<!-- 
+----------------------------------------more selector:------
+
+
+
+document.getElementsByClassName('heading')
+
+HTMLCollection [h1#tittle.heading, 
+tittle: h1#tittle.heading]0: h1#tittle.headingtittle: 
+h1#tittle.headinglength: 1[[Prototype]]: HTMLCollection -->
+
+
+
+
+<!-- #####---- qureySelector-----
+document.querySelector('input[type="password"]')
+<input type=​"password" name id>​
+
+
+####h1 will give here 1st h1 part 
+document.querySelector('h1')
+<h1 id=​"tittle" class=​"heading">​" Dom learning with kowshik "<span style=​"display:​none">​test text​</span>​</h1>​
+
+###
+document.querySelector('input[type="password"]')
+
+ document.querySelector('h2')
+<h2>​hi mfs you are great​</h2>​ -->
+
+
+
+
+
+
+<!-- 
+
+%%%%%%%%%%------perform srlction and qureySelctor in one indivisual___
+
+
+document.querySelector('ul')
+<ul>​…​</ul>​<li>​…​</li>​<li>​…​</li>​<li>​…​</li>​</ul>​
+
+const MYul=document.querySelector('ul')
+undefined
+
+
+tht's will select the 1st li in ul.
+MYul.querySelector('li')
+<li>​…​</li>​
+
+
+that's will store 1st li in a variable.
+const turngreen=MYul.querySelector('li')
+undefined
+
+
+
+changing red into green for one.
+turngreen.style.backgroundColor="green"
+'green'
+
+
+turngreen.style.padding="10px"
+'10px'
+
+turngreen.innerText
+'one'
+
+changing inner text one to seven that's why it show seven
+turngreen.innerText="seven"
+'seven' 
+-->
+
+
+
+<!-- {{{{{{{{{{NODE LIST AND HTML COLLECTIONIS NOT A PURE ARRAY}}}}}}}}}} -->
+ <!-- WE FIND MAP IN ARRAY BUT DID NOT FIND MAP IN NODE LIST PROTOTYPE -->
+
+
+
+
+
+
+<!--############## to amke any change we have to convert our node list into array
+ 
+
+document.querySelectorAll('li')
+NodeList(3) [li, li, li]0: li1: li2: lilength: 3[[Prototype]]: NodeListentries: ƒ entries()forEach: ƒ forEach()item: ƒ item()keys: ƒ keys()length: (...)values: ƒ values()constructor: ƒ NodeList()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "NodeList"get length: ƒ length()[[Prototype]]: Object
+
+
+STORE ALL LIST IN A VARIABLE
+const TempLilist=document.querySelectorAll('li')
+undefined
+
+---TO CHANGE THE LIST COLOR WE HAVE TO GIVE THERE THE INDEX VALUE . IF NOT IT WILL GIVE A ERROR
+TempLilist
+NodeList(3) [li, li, li]
+
+TempLilist[2].style.color= "blue"
+'blue'
+
+TempLilist[1].style.color= "white"
+'white'
+
+TempLilist[0].style.color= "orange"
+'orange'
+
+STORE INTO MYH1 THAT H1 PART FROM OUR HTML CODE
+const Myh1=document.querySelectorAll('h1')
+undefined
+
+-----HERE ALSO THE SAME INDEX NUMBER HAVE TO ADD
+Myh1
+NodeList [h1#tittle.heading]
+Myh1[0].style.color='pink'
+'pink'
+
+
+Myh1[0].style.color='green'
+'green'
+
+
+
+
+---%%%%%%-USING FOReACH TO MAKE NODElIST INTO A ARRAY TO CHANGE OVERALL CHANGE IN 
+
+TempLilist
+NodeList(3) [li, li, li]
+
+TempLilist.forEach(function(l){})
+undefined
+
+
+(FOR GIVE {}----{   } WE HAVE TO USE [shift+enter]KEY) 
+
+TempLilist.forEach(function(l){
+    l.style.backgroundColor='yellow'
+})
+undefined
+
+--THIS WILL GIVE OUR LIST BACKGROUND COLOR INTO YELLOW.
+
+-->
+
+
+
+
+
+
+<!-- #####----------IF EW WANT TO CHANGE OVERALL BY CLASSNAME AND IF WE USE TO forEach (CONVERT TO ARRAY)------ -->
+ <!-- 
+document.getElementsByClassName('list-item')
+HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]0: li.list-item1: li.list-item2: li.list-item3: li.list-itemlength: 4[[Prototype]]: HTMLCollectionitem: ƒ item()length: (...)namedItem: ƒ namedItem()constructor: ƒ HTMLCollection()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.toStringTag): "HTMLCollection"get length: ƒ length()[[Prototype]]: Object
+
+
+
+
+const TempCLaasList=document.getElementsByClassName('list-item')
+undefined
+
+
+
+
+---WE CANNOT ACCESS FOREACH DIRECTLY FOR A NODE LIST 
+TempCLaasList.forEach(function(li){
+    console.log(li)}
+VM2600:2 Uncaught SyntaxError: missing ) after argument list
+
+
+
+--SO WITH THE HELP OF Array.from() we convert it.
+Array.from(TempCLaasList)
+(4) [li.list-item, li.list-item, li.list-item, li.list-item]0: li.list-item1: li.list-item2: li.list-item3: li.list-itemlength: 4[[Prototype]]: Array(0)at: ƒ at()concat: ƒ concat()constructor: ƒ Array()copyWithin: ƒ copyWithin()entries: ƒ entries()every: ƒ every()fill: ƒ fill()filter: ƒ filter()find: ƒ find()findIndex: ƒ findIndex()findLast: ƒ findLast()findLastIndex: ƒ findLastIndex()flat: ƒ flat()flatMap: ƒ flatMap()forEach: ƒ forEach()includes: ƒ includes()indexOf: ƒ indexOf()join: ƒ join()keys: ƒ keys()lastIndexOf: ƒ lastIndexOf()length: 0map: ƒ map()pop: ƒ pop()push: ƒ push()reduce: ƒ reduce()reduceRight: ƒ reduceRight()reverse: ƒ reverse()shift: ƒ shift()slice: ƒ slice()some: ƒ some()sort: ƒ sort()splice: ƒ splice()toLocaleString: ƒ toLocaleString()toReversed: ƒ toReversed()toSorted: ƒ toSorted()toSpliced: ƒ toSpliced()toString: ƒ toString()unshift: ƒ unshift()values: ƒ values()with: ƒ with()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.unscopables): {at: true, copyWithin: true, entries: true, fill: true, find: true, …}[[Prototype]]: Object
+
+
+
+
+const MyconvertedArray=Array.from(TempCLaasList)
+undefined
+
+
+
+
+MyconvertedArray
+(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+
+
+
+MyconvertedArray.forEach(function(li){li.style.color='orange'})
+undefined
+-->

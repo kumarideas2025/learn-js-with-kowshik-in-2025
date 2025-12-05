@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | CODE WITH KOWSHIK</title>
+</head>
+<body style="background-color:rgb(230, 31, 31); color:rgb(32, 17, 161);">
+    
+    <div class="parent">
+        <!-- this comment will change nodeList 9 to 11 -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+   const parent= document.querySelector('.parent')
+   console.log(parent);
+      console.log(parent.children);
+      console.log(parent.children[1]);
+      console.log(parent.children[1].innerHTML);
+      
+
+      for(let i=0;i<parent.children.length;i++){
+         console.log(parent.children[i].innerHTML);
+      }
+
+
+     parent.children[1].style.color="orange"
+     
+
+     console.log(parent.firstElementChild)
+
+    console.log(parent.lastElementChild)
+
+
+//move from child to parent
+const dayOne=document.querySelector('.day')
+console.log(dayOne)
+
+// we already have dayone so please tell me total parent element
+console.log(dayOne.parentElement)
+
+
+console.log(dayOne.nextElementSibling)
+
+console.log("NODES:",parent.childNodes) //that is give 9 nodeList: cause afterevery day enter we tap to next line and there create a new text line thus how there will 9 nodelist
+// html always one line rendering after for example: we comment a line and it will change nodeList number
+</script>
+</html>
+
+
+
+
+<!-- out[puts in console] -->
+
+<!-- 03.html:58 div.parent
+
+03.html:59 HTMLCollection(4) [div.day, div.day, div.day, div.day]
+
+03.html:60 <div class=​"day" style=​"color:​ orange;​">​Tuesday​</div>​
+
+03.html:61 Tuesday
+
+03.html:65 Monday
+
+03.html:65 Tuesday
+
+03.html:65 Wednesday
+
+03.html:65 Thursday
+
+03.html:72 <div class=​"day">​Monday​</div>​
+
+03.html:74 <div class=​"day">​Thursday​</div>​
+
+03.html:79 <div class=​"day">​Monday​</div>
+
+03.html:82 <div class=​"parent">​…​</div>​
+
+03.html:85 <div class=​"day" style=​"color:​ orange;​">​Tuesday​</div>​
+
+03.html:87 NODES: NodeList(11) [text, comment, text, div.day, text, div.day, text, div.day, text, div.day, text]0: text1: comment2: text3: div.day4: text5: div.day6: text7: div.day8: text9: div.day10: textlength: 11[[Prototype]]: NodeList -->

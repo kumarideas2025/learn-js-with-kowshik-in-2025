@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: brown;">
+
+   <script>
+    const request='https://randomuser.me/api/'
+    //xml request are called ajx'
+     const xhr=new XMLHttpRequest()
+    xhr.open('GET',request) //this will sent request.
+    console.log("KOwshik co.")
+
+
+    //will  give continues tracks
+    //for continues tracks--
+    xhr.onreadystatechange=function(){
+        console.log(xhr.readyState) 
+    if(xhr.readyState ===4){
+ 
+        //  if we do not convert to JSONthis saw data is a string (but we need object ..so we need to convert it)
+       
+       
+        const data=JSON.parse(this.responseText)
+        console.log(typeof data) //now this will give object
+         console.log(data)     //this give all value when we finally went to 4 after tracking .
+        console.log(data.gender)
+    
+    }   }
+
+    
+    //now we have to call open()
+    xhr.send()
+
+
+
+//--console log is debugging tolls.(we find it from runtime environment hoe js works)-- went to V8 engine[this build on C++]
+//this give all js run time--read source code from there. here we also find api but this is not that api
+//****************** d8 folder ->d8-console.cc and d8-console.header
+// this d8 cc is mainly console.log
+
+
+   </script> 
+</body>
+</html>

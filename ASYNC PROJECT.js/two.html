@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Code but do not feel low</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+  </body>
+  <script>
+
+    //-----------one way but it goes  like infinate----
+   // setInterval(function(){
+       // console.log("KOwshik",Date.now())
+    //},4000)
+
+
+
+
+
+
+//----another way---------------------
+//const sayDate=function(str){
+//   console.log(str,Date.now())}
+ //  const InterVal_id= setInterval(sayDate ,2000,"HI kowshik oit it  is working ") // referencing and also give a comment in there
+
+
+// now we needed to stop that --this will make sure that is not run anymore
+            //clearInterval(InterVal_id)
+
+//------------COMMENT THEM OUT SO START AND STOP PROPERLY WORKS.
+
+
+
+
+
+
+
+
+//--------------USING Start AND STOP BUTTON--------------------
+
+const sayDate=function(str){
+console.log(str,Date.now())} // date.now give times science  1970 
+
+let StartNOw;
+document.querySelector('#start').addEventListener('click',function(){
+    console.log("start the project")
+ StartNOw=setInterval(sayDate ,2000,"HI kowshik oit it  is working ") // this get refer to function(saydate) as a parameter(str)... argument("hi koshik......")
+ //sayDate in setintervale works as a function reference (that connect with that function and print )....2000 works with date.noe..........and that comment will go to str 
+})
+
+
+
+document.querySelector('#stop').addEventListener('click',function(){
+    console.log("stop the project")
+     clearInterval(StartNOw) // this will remove start_now 
+})
+
+  </script>
+</html>

@@ -1,0 +1,127 @@
+
+[function]
+                \
+        array--->Object---->null(getter and setter)
+                   /
+                 /
+                /
+            string
+here all  goes through object so we can convert them.
+
+Every JavaScript object has a hidden internal property:
+[[Prototype]] → references another object
+
+Objects inherit methods and properties from that prototype
+
+
+
+
+
+
+
+1. multipleBY5(5)
+Output:
+25
+
+Why?
+
+we are calling the function normally.
+num = 5
+It returns 5 * 5 = 25
+So this part is simple.
+
+
+
+
+
+
+
+
+2. multipleBY5.power
+Output:
+2
+Why?
+
+In JavaScript:
+
+✔ Functions are objects
+✔ we can add properties to them
+✔ multipleBY5.power = 2 adds a new property to the function object
+
+This:
+multipleBY5
+internally looks like:
+
+{
+  name: "multipleBY5",
+  length: 1,
+  …function internals…
+  power: 2    // ←  custom property
+}
+So printing:
+console.log(multipleBY5.power)
+prints 2.
+
+
+
+3. multipleBY5.prototype
+Output:
+{}
+
+
+(or something like: multipleBY5 {})
+
+
+
+
+
+
+------------WHY EMPTY OBJECT??
+
+This is the MOST IMPORTANT part.
+
+✔ Every function in JavaScript automatically gets a .prototype object
+
+Why?
+Because JavaScript assumes {we might use this function as a constructor=myFunction.prototype} with the new keyword later.
+
+-----(here,myFunction.prototype and this. are same)----
+So for every normal function:
+
+myFunction.prototype = {}
+automatically created.
+But…we didn't add anything to the prototype, so it's empty.
+If we do this:
+
+multipleBY5.prototype.multiply = function() {
+    console.log("Hello");
+}
+
+
+Then:
+
+console.log(multipleBY5.prototype)
+Will show:
+
+{
+  multiply: f
+}
+
+
+
+
+
+
+ -----------Why does .prototype exist at all?
+
+Because when we create objects using:
+
+const obj = new multipleBY5();
+
+
+The new object will inherit from:
+
+multipleBY5.prototype
+
+
+So .prototype is used only for constructor functions + inheritance purposes.

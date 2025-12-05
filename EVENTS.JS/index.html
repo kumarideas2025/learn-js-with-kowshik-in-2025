@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+
+            <!-- this approch is not recommanded although it is working(alerting approch on click) -->
+            <!-- <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="alert('owl')"></li> -->
+
+
+             <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+
+    // this is not good--cause it gives lesser feature 
+
+  //document.getElementById('owl').onclick=function(){
+   // alert("owl clicked")}
+
+
+
+   document.getElementById('owl').addEventListener('click',function(){ // there have a 3rd parameter which is true/false(but it is default[but in some case we have to show it there])
+
+            alert("owl click again")
+   })
+  
+//attachEvent()
+//jQuery()--onEventListner
+
+
+
+
+//event objects--> function(e)...gives us right to capture event.
+
+document.getElementById('owl').addEventListener('click',function(e){ // there have a 3rd parameter which is true/false(but it is default[but in some case we have to show it there])
+
+console.log(e) }// to check what is really in the events---to go inspect and click owl and we get amny events.
+,false)
+
+
+
+//type, timestamp, defaultPrevented
+//target,toElement,srcElement,currentTarget
+//clientX,clientY,screenX,screenY
+//AltKey,ctrKEy,shiftKEy,keyCOde
+
+
+
+
+//eventPropogration--? eventBubling and eventCapturing
+
+document.getElementById('images').addEventListener('click',function(e){ 
+console.log("click inside the ul")  }
+,false)
+
+
+
+
+document.getElementById('owl').addEventListener('click',function(e){ 
+console.log("click OWL") 
+e.stopPropagation() // by using this we can stop bubling .. so event will not go upper.
+}
+,false)
+
+
+
+
+// question is owl is inside of images ul list .
+// so if we click to images ?? will both print or not?
+// aso when we click to ps only show inside ul comment
+// but when we click to owl both of them print.
+//inside-images and outside -owl...so bubling track through  inside to outside..like buble fly down to up.
+
+
+
+
+
+
+
+
+
+//alternative of this is called capturing mode
+// this gives result to to bottum
+//document.getElementById('images').addEventListener('click',function(e){ 
+//console.log("click inside the ul")  }
+//,true)
+//document.getElementById('owl').addEventListener('click',function(e){ 
+//console.log("click OWL")  }
+//,true)
+
+
+
+
+// by using thios we can prevent to go to website and only write the comment inside the console
+document.getElementById('google').addEventListener
+('click',function(e){
+  e.preventDefault()
+  e.stopPropagation() // this will stop bubling(without this images part comment also show)
+  console.log("google clicked")
+},false)
+
+
+
+
+
+
+
+
+
+// we want that after clicking li all the images should be disappear.
+
+document.querySelector('#images').addEventListener
+('click',function(e){
+
+    console.log(e.target.parentNode) // target only gives li but there will be still bluet_point so we want to remove all from parent ... so use parentNOde
+
+//after selected now we have to remove it
+    //let removeIt=e.target.parentNode
+    //removeIt.remove()
+
+
+
+    //another way ti remove
+   // removeIt.parentNode.removeChild(removeIt)----this is newly
+
+
+
+
+// if we tap to near google all list items are gone
+//cause if we tap to list items ..w know list items parent is ul and in parentNode() WE GIVE THIS UL. SO AS A RESULT WE FIND IT ALL REMOVER.
+// SO WE USE SOME CHECKS
+
+ console.log(e.target.tagName)
+ if(e.target.tagName==='IMG')
+ { 
+    console.log(e.target.id)
+    let removeIt=e.target.parentNode
+    removeIt.remove()} // this will remove that particular image and will show that delted image name
+},false)
+
+
+
+
+</script>
+</html>
